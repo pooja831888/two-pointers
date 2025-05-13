@@ -1,0 +1,25 @@
+class Solution {
+    public static int numberofElementsInIntersection(int a[], int b[]) {
+        
+      Arrays.sort(a);
+        Arrays.sort(b);
+
+        int i = 0, j = 0;
+        Set<Integer> intersection = new HashSet<>();
+
+        while (i < a.length && j < b.length) {
+            if (a[i] == b[j]) {
+                intersection.add(a[i]);
+                i++;
+                j++;
+            } else if (a[i] < b[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+
+        return intersection.size();
+        
+    }
+}
